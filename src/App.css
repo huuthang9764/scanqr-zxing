@@ -1,0 +1,42 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+  .video-container {
+    border: 5px solid #424646;
+    width: 400px; /* Kích thước ban đầu */
+    height: 400px; /* Kích thước ban đầu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Tránh việc hiển thị video ngoài phần tử cha */
+  }
+  
+  .video-container video {
+    width: 100%; /* Đảm bảo video điền vào phần tử cha */
+    height: 100%; /* Đảm bảo video điền vào phần tử cha */
+    object-fit: cover; /* Điều chỉnh việc hiển thị của video để không bị biến dạng */
+  }
+  
+
+/* CSS cho màn hình điện thoại */ 
+@media (max-width: 768px) {
+  /* Thêm CSS cho phần tử #root */
+  #root {
+    padding: 1rem; /* Giảm khoảng cách padding cho thiết bị di động */
+  }
+
+  /* Thêm CSS cho phần tử .video-container */
+  .video-container {
+    width: 100%; /* Chiều rộng 100% cho thiết bị di động */
+    height: auto; /* Chiều cao tự động cho thiết bị di động */
+    margin-bottom: 2rem; /* Khoảng cách phía dưới cho thiết bị di động */
+  }
+
+}
+
+
