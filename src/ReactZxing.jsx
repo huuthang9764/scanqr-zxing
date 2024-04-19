@@ -26,10 +26,13 @@ const ReactZxing = () => {
     setPaused(!paused);
   };
 
+
   useEffect(() => {
     if (result) {
+   
+      const mssv = result.substring(0, 10);
       // Gửi dữ liệu lên URL http://localhost:3000/api/data với mssv là result
-      axios.post('https://it.nguyenhuuthang.name.vn/api/data', { mssv: result })
+      axios.post('https://it.nguyenhuuthang.name.vn/api/data', { mssv: mssv })
         .then(response => {
           Swal.fire({
             title: "success",
@@ -37,7 +40,7 @@ const ReactZxing = () => {
             icon: "success"
           });
           // setPaused(!paused);
-          console.log('Data sent successfully:', response.data);
+          // console.log('Data sent successfully:', response.data);
         })
         .catch(error => {
           Swal.fire({
