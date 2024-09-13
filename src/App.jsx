@@ -8,13 +8,17 @@ import ReactZxing from './components/ReactZxing';
 function App() {
   const [allowAccess, setAllowAccess] = useState(false);
 
+  const handleBack = () => {
+    setAllowAccess(false);
+  }
+
   return (
     <>
       <Header />
 
       <main className="overflow-y-auto max-h-main-content container mt-header mb-5">
         {allowAccess ? (
-          <ReactZxing />
+          <ReactZxing onBack={handleBack} />
         ) : (
           <CodeInput setAllowAccess={setAllowAccess} />
         )}

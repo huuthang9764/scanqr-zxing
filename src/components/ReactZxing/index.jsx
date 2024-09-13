@@ -3,7 +3,7 @@ import { useZxing } from 'react-zxing';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-const ReactZxing = () => {
+const ReactZxing = ({ onBack }) => {
   const [result, setResult] = useState("");
   const [paused, setPaused] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -50,19 +50,28 @@ const ReactZxing = () => {
   return (
     <>
       <h1 className="text-center my-5">SCAN-QR</h1>
+      
       <div className="d-flex justify-content-center">
         <div className="camera-container">
-        <div className="video-container">
+          <div className="video-container">
             <video ref={ref} className="camera-video"></video>
           </div>
-          <button className="btn btn-primary btn-lg mt-3" onClick={toggleCamera}>
-            {paused ? 'Start Camera' : 'Stop Camera'}
-          </button>
+          <div className="row mt-3">
+            <div className="col-6">
+              <button className="btn btn-primary btn-lg w-100" onClick={toggleCamera}>
+                {paused ? 'Start' : 'Stop'}
+              </button>
+            </div>
+            <div className="col-6">
+              <button className="btn btn-danger btn-lg w-100" onClick={onBack}>Back</button>
+            </div>
+          </div>
         </div>
       </div>
       <div className="result-container mt-4">
         <h4>Result:</h4>
         <p id="result-text">{result}</p>
+        
       </div>
     </>
   )
